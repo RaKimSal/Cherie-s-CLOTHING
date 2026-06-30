@@ -1,4 +1,4 @@
-import newInIcon from "../assets/img/newInIcon.png";
+import newInIcon from "../assets/img/newinIcon.png";
 import dressesIcon from "../assets/img/dressesIcon.png";
 import topsIcon from "../assets/img/topsIcon.png";
 import bottomIcon from "../assets/img/bottomIcon.png";
