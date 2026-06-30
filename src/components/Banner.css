@@ -1,0 +1,165 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&display=swap");
+
+.cherie-banner {
+  position: relative;
+  width: 100%;
+  height: 560px;
+  overflow: hidden;
+  background-color: #f4e7df;
+}
+
+.cherie-banner-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+
+  /* moves the image down so the head is not cut */
+  object-position: center 35%;
+
+  /* makes image softer and less bright */
+  filter: brightness(0.92) saturate(0.85) sepia(0.08);
+}
+
+/* soft nude overlay to match the concept image */
+.cherie-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(255, 248, 242, 0.35),
+    rgba(238, 214, 201, 0.18)
+  );
+  pointer-events: none;
+}
+
+.cherie-banner-content {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 90px;
+  transform: translateY(-50%);
+  max-width: 540px;
+  color: #2f211d;
+}
+
+.cherie-banner-eyebrow {
+  margin: 0 0 20px;
+  color: #9b6d5c;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.cherie-banner-title {
+  margin: 0;
+  color: #2f211d;
+  font-family: "Cormorant Garamond", "Bodoni Custom", serif;
+  font-size: clamp(52px, 5vw, 76px);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: 0.2px;
+}
+
+.cherie-banner-description {
+  margin: 26px 0 32px;
+  color: #3f332f;
+  font-family: "Montserrat", sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.cherie-banner-button {
+  padding: 18px 42px;
+  color: #ffffff;
+  background-color: #a97862;
+  border: 2px solid #a97862;
+  border-radius: 3px;
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.cherie-banner-button:hover {
+  background-color: #8f614f;
+  border-color: #8f614f;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 1050px) {
+  .cherie-banner {
+    height: 500px;
+  }
+
+  .cherie-banner-image {
+    object-position: center 35%;
+  }
+
+  .cherie-banner-content {
+    left: 50px;
+    max-width: 460px;
+  }
+
+  .cherie-banner-title {
+    font-size: 56px;
+  }
+
+  .cherie-banner-description {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 760px) {
+  .cherie-banner {
+    height: 620px;
+  }
+
+  .cherie-banner-image {
+    object-position: 65% center;
+  }
+
+  .cherie-banner::after {
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 253, 248, 0.78),
+      rgba(238, 214, 201, 0.35)
+    );
+  }
+
+  .cherie-banner-content {
+    z-index: 1;
+    top: 42%;
+    left: 24px;
+    right: 24px;
+    max-width: none;
+  }
+
+  .cherie-banner-eyebrow {
+    font-size: 12px;
+    letter-spacing: 2px;
+  }
+
+  .cherie-banner-title {
+    font-size: 46px;
+  }
+
+  .cherie-banner-description {
+    font-size: 15px;
+  }
+
+  .cherie-banner-button {
+    padding: 15px 32px;
+  }
+}

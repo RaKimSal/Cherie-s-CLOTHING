@@ -1,0 +1,263 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
+@font-face {
+  font-family: "Bodoni Custom";
+  src: url("../assets/font/Bodoni.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+  .cherie-header {
+    width: 100%;
+    background-color: #fffdf8;
+    border-bottom: 1px solid #eadbd2;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .promo-bar {
+    width: 100%;
+    padding: 8px 16px;
+    background-color: #f1dfd5;
+    color: #5b3a31;
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.8px;
+    text-align: center;
+  }
+  
+  .cherie-navbar {
+    width: 100%;
+    min-height: 88px;
+    padding: 0 130px;
+  
+    display: grid;
+    grid-template-columns: 200px 1fr 150px;
+    align-items: center;
+    gap: 20px;
+  
+    background-color: #fffdf8;
+  }
+  
+  .cherie-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0;
+  
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .cherie-logo-main {
+    color: #2f211d;
+    font-family: "Bodoni Custom", serif;
+    font-size: 46px;
+    font-weight: normal;
+    line-height: 0.9;
+    letter-spacing: 0.3px;
+  }
+  
+  .cherie-logo-sub {
+    margin-left: 36px;
+    margin-top: 5px;
+  
+    color: #6f5148;
+    font-family: "Montserrat", sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 7px;
+  }
+  
+  .cherie-nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 34px;
+  }
+  
+  .cherie-nav-link {
+    color: #2f211d;
+    background: none;
+    border: none;
+  
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.1px;
+    text-transform: uppercase;
+  
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+  
+  .cherie-nav-link:hover {
+    color: #a97862;
+  }
+  
+  .nav-arrow {
+    margin-left: 6px;
+    font-size: 15px;
+  }
+  
+  .cherie-nav-icons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 22px;
+  }
+  
+  .nav-icon-btn {
+    position: relative;
+  
+    width: 34px;
+    height: 34px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    color: #2f211d;
+    background: none;
+    border: none;
+  
+    font-size: 27px;
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+  }
+  
+  .nav-icon-btn:hover {
+    color: #a97862;
+    transform: translateY(-2px);
+  }
+  
+  .cart-icon {
+    font-size: 22px;
+  }
+  
+  .cart-count {
+    position: absolute;
+    top: 0;
+    right: -5px;
+  
+    width: 18px;
+    height: 18px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    color: #ffffff;
+    background-color: #a97862;
+    border-radius: 50%;
+  
+    font-family: "Montserrat", sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+  }
+  
+  .mobile-menu-btn {
+    display: none;
+  
+    color: #2f211d;
+    background: none;
+    border: none;
+  
+    font-size: 30px;
+    cursor: pointer;
+  }
+  
+  /* Tablet */
+  @media (max-width: 1050px) {
+    .cherie-navbar {
+      padding: 0 28px;
+      grid-template-columns: 180px 1fr 150px;
+    }
+  
+    .cherie-logo-main {
+      font-size: 38px;
+    }
+  
+    .cherie-logo-sub {
+      margin-left: 28px;
+      font-size: 10px;
+      letter-spacing: 6px;
+    }
+  
+    .cherie-nav-links {
+      gap: 18px;
+    }
+  
+    .cherie-nav-link {
+      font-size: 12px;
+    }
+  }
+  
+  /* Mobile */
+  @media (max-width: 780px) {
+    .cherie-navbar {
+      min-height: 78px;
+      padding: 0 18px;
+      grid-template-columns: 40px 1fr 110px;
+    }
+  
+    .mobile-menu-btn {
+      display: block;
+    }
+  
+    .cherie-logo {
+      align-items: center;
+    }
+  
+    .cherie-logo-main {
+      font-size: 34px;
+    }
+  
+    .cherie-logo-sub {
+      margin-left: 0;
+      margin-top: 4px;
+      font-size: 9px;
+      letter-spacing: 5px;
+    }
+  
+    .cherie-nav-links {
+      position: absolute;
+      top: 112px;
+      left: 0;
+      right: 0;
+  
+      display: none;
+      flex-direction: column;
+      gap: 0;
+  
+      background-color: #fffdf8;
+      border-top: 1px solid #eadbd2;
+      border-bottom: 1px solid #eadbd2;
+    }
+  
+    .cherie-nav-links.show-menu {
+      display: flex;
+    }
+  
+    .cherie-nav-link {
+      width: 100%;
+      padding: 16px;
+      border-bottom: 1px solid #eadbd2;
+    }
+  
+    .cherie-nav-icons {
+      gap: 8px;
+    }
+  
+    .nav-icon-btn {
+      width: 28px;
+      height: 28px;
+      font-size: 22px;
+    }
+  
+    .cart-icon {
+      font-size: 19px;
+    }
+  }
