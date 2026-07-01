@@ -43,7 +43,12 @@ const NewarrivalIcons = () => {
       name: "Elegant Off-Shoulder Dress",
       price: "$89.00",
       image: newInOne,
-      images: [newInOne, newInOneBack, newInOneBlack, newInOneRed],
+      images: [
+        newInOne,
+        newInOneBack,
+        newInOneBlack,
+        newInOneRed,
+      ],
       colors: [
         {
           name: "White",
@@ -62,7 +67,6 @@ const NewarrivalIcons = () => {
         },
       ],
       sizes: ["XS", "S", "M", "L", "XL"],
-      isNew: false,
       description:
         "An elegant fitted dress designed for a timeless and feminine look.",
     },
@@ -71,7 +75,12 @@ const NewarrivalIcons = () => {
       name: "Linen Vest Trouser Set",
       price: "$109.00",
       image: newInTwo,
-      images: [newInTwo, newInTwoBlue, newInTwoGray, newInTwoRose],
+      images: [
+        newInTwo,
+        newInTwoBlue,
+        newInTwoGray,
+        newInTwoRose,
+      ],
       colors: [
         {
           name: "Rose",
@@ -90,7 +99,6 @@ const NewarrivalIcons = () => {
         },
       ],
       sizes: ["XS", "S", "M", "L", "XL"],
-      isNew: true,
       description:
         "A polished vest and trouser set made for a soft, elevated style.",
     },
@@ -99,7 +107,11 @@ const NewarrivalIcons = () => {
       name: "Strapless Linen Jumpsuit",
       price: "$79.00",
       image: newInThree,
-      images: [newInThree, newInThreeBack, newInThreeDetail],
+      images: [
+        newInThree,
+        newInThreeBack,
+        newInThreeDetail,
+      ],
       colors: [
         {
           name: "Cream",
@@ -108,7 +120,6 @@ const NewarrivalIcons = () => {
         },
       ],
       sizes: ["XS", "S", "M", "L", "XL"],
-      isNew: false,
       description:
         "A relaxed cream jumpsuit with soft fabric and an effortless silhouette.",
     },
@@ -117,7 +128,11 @@ const NewarrivalIcons = () => {
       name: "Textured Co-Ord Set",
       price: "$99.00",
       image: newInFour,
-      images: [newInFour, newInFourBack, newInFourDetail],
+      images: [
+        newInFour,
+        newInFourBack,
+        newInFourDetail,
+      ],
       colors: [
         {
           name: "Cream",
@@ -126,7 +141,6 @@ const NewarrivalIcons = () => {
         },
       ],
       sizes: ["XS", "S", "M", "L", "XL"],
-      isNew: false,
       description:
         "A chic matching set with a clean shape and timeless everyday style.",
     },
@@ -222,11 +236,9 @@ const NewarrivalIcons = () => {
 
       <section className="new-arrivals-section">
         <div className="new-arrivals-header">
-          <h2 className="new-arrivals-title">New Arrivals</h2>
-
-          <button type="button" className="new-arrivals-view-all">
-            View All
-          </button>
+          <h2 className="new-arrivals-title">
+            New Arrivals
+          </h2>
         </div>
 
         <div className="new-arrivals-grid">
@@ -237,10 +249,6 @@ const NewarrivalIcons = () => {
               onClick={() => openProduct(item)}
             >
               <div className="new-arrival-image-wrapper">
-                {item.isNew && (
-                  <span className="new-arrival-badge">New</span>
-                )}
-
                 <button
                   type="button"
                   className={`new-arrival-heart ${
@@ -266,9 +274,13 @@ const NewarrivalIcons = () => {
               </div>
 
               <div className="new-arrival-info">
-                <h3 className="new-arrival-name">{item.name}</h3>
+                <h3 className="new-arrival-name">
+                  {item.name}
+                </h3>
 
-                <p className="new-arrival-price">{item.price}</p>
+                <p className="new-arrival-price">
+                  {item.price}
+                </p>
 
                 <div className="new-arrival-colors">
                   {item.colors.map((color) => (
@@ -329,8 +341,6 @@ const NewarrivalIcons = () => {
             </div>
 
             <div className="product-detail-info">
-              <p className="product-detail-label">New Arrival</p>
-
               <h2 className="product-detail-name">
                 {selectedProduct.name}
               </h2>
@@ -367,7 +377,9 @@ const NewarrivalIcons = () => {
               </div>
 
               <div className="product-option-block">
-                <div className="product-option-heading">Size</div>
+                <div className="product-option-heading">
+                  Size
+                </div>
 
                 <div className="product-size-options">
                   {selectedProduct.sizes.map((size) => (
@@ -375,7 +387,9 @@ const NewarrivalIcons = () => {
                       key={size}
                       type="button"
                       className={`product-size-button ${
-                        selectedSize === size ? "selected-size" : ""
+                        selectedSize === size
+                          ? "selected-size"
+                          : ""
                       }`}
                       onClick={() => setSelectedSize(size)}
                     >
@@ -386,7 +400,10 @@ const NewarrivalIcons = () => {
               </div>
 
               <div className="product-detail-actions">
-                <button type="button" className="product-add-cart">
+                <button
+                  type="button"
+                  className="product-add-cart"
+                >
                   Add to Cart
                 </button>
 

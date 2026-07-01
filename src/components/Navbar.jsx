@@ -5,7 +5,6 @@ const Navbar = ({ cartCount = 0, onCategoryChange }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    "New In",
     "Clothing",
     "Dresses",
     "Tops",

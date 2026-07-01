@@ -1,4 +1,4 @@
-import newInIcon from "../assets/img/newinIcon.png";
+import summerIcon from "../assets/img/summerIcon.png";
 import dressesIcon from "../assets/img/dressesIcon.png";
 import topsIcon from "../assets/img/topsIcon.png";
 import bottomIcon from "../assets/img/bottomIcon.png";
@@ -10,8 +10,8 @@ import "./ShopbycategoryIcon.css";
 const ShopbycategoryIcon = ({ onCategoryChange }) => {
   const categories = [
     {
-      name: "New In",
-      image: newInIcon,
+      name: "Summer",
+      image: summerIcon,
     },
     {
       name: "Dresses",

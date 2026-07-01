@@ -1,0 +1,345 @@
+.product-detail-page {
+    width: 100%;
+    min-height: 100vh;
+    padding: 44px 90px 80px;
+    background-color: #fffdf8;
+  }
+  
+  .product-detail-back {
+    margin-bottom: 30px;
+  
+    color: #5b3a31;
+    background: none;
+    border: none;
+  
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+  
+    cursor: pointer;
+  }
+  
+  .product-detail-layout {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 54px;
+    align-items: start;
+  }
+  
+  .product-detail-gallery-page {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 18px;
+  }
+  
+  .product-detail-thumbnails-page {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .product-detail-thumbnail-page {
+    width: 90px;
+    height: 118px;
+  
+    overflow: hidden;
+    padding: 0;
+  
+    background-color: #f1dfd5;
+    border: 1px solid #eadbd2;
+    cursor: pointer;
+  }
+  
+  .product-detail-thumbnail-page.active-thumbnail {
+    border: 2px solid #a97862;
+  }
+  
+  .product-detail-thumbnail-page img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .product-detail-main-page {
+    width: 100%;
+    height: 760px;
+    overflow: hidden;
+    background-color: #f1dfd5;
+  }
+  
+  .product-detail-main-page img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+  
+  .product-detail-content-page {
+    padding-top: 40px;
+    text-align: center;
+  }
+  
+  .product-detail-category-page {
+    margin: 0 0 12px;
+  
+    color: #a97862;
+    font-family: "Montserrat", sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+  
+  .product-detail-title-page {
+    margin: 0 0 18px;
+  
+    color: #2f211d;
+    font-family: "Cormorant Garamond", "Bodoni Custom", serif;
+    font-size: clamp(44px, 4vw, 68px);
+    font-weight: 400;
+    line-height: 0.95;
+  }
+  
+  .product-detail-price-page {
+    margin: 0 0 22px;
+  
+    color: #2f211d;
+    font-family: "Montserrat", sans-serif;
+    font-size: 25px;
+    font-weight: 700;
+  }
+  
+  .product-detail-description-page {
+    max-width: 560px;
+    margin: 0 auto 34px;
+  
+    color: #5b3a31;
+    font-family: "Montserrat", sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+  }
+  
+  .product-detail-option-block {
+    margin-bottom: 28px;
+  }
+  
+  .product-detail-option-heading {
+    margin-bottom: 14px;
+  
+    color: #2f211d;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+  }
+  
+  .product-detail-option-heading span {
+    color: #a97862;
+  }
+  
+  .product-detail-color-options {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+  }
+  
+  .product-detail-color-button {
+    width: 38px;
+    height: 38px;
+  
+    border: 1px solid #d8c7bd;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .product-detail-color-button.selected-color {
+    outline: 2px solid #a97862;
+    outline-offset: 3px;
+  }
+  
+  .product-detail-size-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+  }
+  
+  .product-detail-size-guide-btn {
+    margin-bottom: 14px;
+  
+    color: #a97862;
+    background: none;
+    border: none;
+  
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: underline;
+  
+    cursor: pointer;
+  }
+  
+  .product-detail-size-options {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  
+  .product-detail-size-button {
+    min-width: 62px;
+    padding: 12px 20px;
+  
+    color: #2f211d;
+    background-color: #fffdf8;
+    border: 1px solid #d8c7bd;
+  
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .product-detail-size-button:hover,
+  .product-detail-size-button.selected-size {
+    color: #ffffff;
+    background-color: #a97862;
+    border-color: #a97862;
+  }
+  
+  .product-detail-size-guide {
+    max-width: 520px;
+    margin: 24px auto 0;
+    padding: 22px;
+  
+    background-color: #f8f1ec;
+    border: 1px solid #eadbd2;
+    text-align: left;
+  }
+  
+  .product-detail-size-guide h3 {
+    margin: 0 0 16px;
+  
+    color: #2f211d;
+    font-family: "Montserrat", sans-serif;
+    font-size: 15px;
+  }
+  
+  .product-detail-size-guide table {
+    width: 100%;
+    border-collapse: collapse;
+  
+    color: #5b3a31;
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+  }
+  
+  .product-detail-size-guide th,
+  .product-detail-size-guide td {
+    padding: 10px;
+    border-bottom: 1px solid #eadbd2;
+    text-align: center;
+  }
+  
+  .product-detail-actions-page {
+    display: grid;
+    grid-template-columns: 1fr 58px;
+    gap: 14px;
+  
+    max-width: 560px;
+    margin: 34px auto 0;
+  }
+  
+  .product-detail-add-cart {
+    height: 58px;
+  
+    color: #ffffff;
+    background-color: #2f211d;
+    border: 1px solid #2f211d;
+  
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+  
+    cursor: pointer;
+  }
+  
+  .product-detail-add-cart:hover {
+    background-color: #a97862;
+    border-color: #a97862;
+  }
+  
+  .product-detail-add-favorite {
+    height: 58px;
+  
+    color: #a97862;
+    background-color: #fffdf8;
+    border: 1px solid #d8c7bd;
+    border-radius: 50%;
+  
+    font-size: 30px;
+    cursor: pointer;
+  }
+  
+  .product-detail-add-favorite:hover,
+  .product-detail-add-favorite.favorite-active {
+    color: #ffffff;
+    background-color: #a97862;
+    border-color: #a97862;
+  }
+  
+  .product-detail-shipping-note {
+    max-width: 560px;
+    margin: 24px auto 0;
+    padding: 18px;
+  
+    color: #5b3a31;
+    background-color: #f8f1ec;
+  
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+  }
+  
+  @media (max-width: 1050px) {
+    .product-detail-page {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+  
+    .product-detail-layout {
+      grid-template-columns: 1fr;
+    }
+  
+    .product-detail-content-page {
+      padding-top: 0;
+    }
+  }
+  
+  @media (max-width: 650px) {
+    .product-detail-page {
+      padding: 34px 24px 60px;
+    }
+  
+    .product-detail-gallery-page {
+      grid-template-columns: 1fr;
+    }
+  
+    .product-detail-thumbnails-page {
+      flex-direction: row;
+      overflow-x: auto;
+    }
+  
+    .product-detail-thumbnail-page {
+      width: 76px;
+      height: 100px;
+      flex: 0 0 auto;
+    }
+  
+    .product-detail-main-page {
+      height: 540px;
+    }
+  
+    .product-detail-actions-page {
+      grid-template-columns: 1fr 58px;
+    }
+  }

@@ -1,0 +1,118 @@
+.product-card {
+    overflow: hidden;
+    background-color: #ffffff;
+    border: 1px solid #eadbd2;
+    border-radius: 8px;
+    cursor: pointer;
+  
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+  
+  .product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 28px rgba(91, 58, 49, 0.12);
+  }
+  
+  .product-card-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 430px;
+    overflow: hidden;
+    background-color: #f1dfd5;
+  }
+  
+  .product-card-image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center top;
+  
+    transition: transform 0.25s ease;
+  }
+  
+  .product-card:hover .product-card-image {
+    transform: scale(1.04);
+  }
+  
+  .product-card-heart {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 2;
+  
+    width: 38px;
+    height: 38px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    color: #a97862;
+    background-color: #fffdf8;
+    border: 1px solid #eadbd2;
+    border-radius: 50%;
+  
+    font-size: 26px;
+    line-height: 1;
+    cursor: pointer;
+  
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease,
+      transform 0.2s ease;
+  }
+  
+  .product-card-heart:hover,
+  .product-card-heart.product-card-heart-active {
+    color: #ffffff;
+    background-color: #a97862;
+    border-color: #a97862;
+    transform: scale(1.08);
+  }
+  
+  .product-card-info {
+    padding: 16px 18px 20px;
+  }
+  
+  .product-card-name {
+    margin: 0 0 8px;
+  
+    color: #5b3a31;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  
+  .product-card-price {
+    margin: 0 0 14px;
+  
+    color: #2f211d;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+  }
+  
+  .product-card-colors {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .product-card-color {
+    width: 13px;
+    height: 13px;
+  
+    display: inline-block;
+  
+    border: 1px solid #d8c7bd;
+    border-radius: 50%;
+  }
+  
+  @media (max-width: 650px) {
+    .product-card-image-wrapper {
+      height: 440px;
+    }
+  }
