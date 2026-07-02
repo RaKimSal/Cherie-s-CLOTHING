@@ -5,7 +5,7 @@ const Navbar = ({ cartCount = 0, onCategoryChange }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    "Clothing",
+    "All",
     "Dresses",
     "Tops",
     "Bottoms",
@@ -64,23 +64,11 @@ const Navbar = ({ cartCount = 0, onCategoryChange }) => {
               onClick={() => handleNavClick(item)}
             >
               {item}
-
-              {item === "Clothing" && (
-                <span className="nav-arrow">⌄</span>
-              )}
             </button>
           ))}
         </div>
 
         <div className="cherie-nav-icons">
-          <button
-            type="button"
-            className="nav-icon-btn"
-            aria-label="Search"
-          >
-            ⌕
-          </button>
-
           <button
             type="button"
             className="nav-icon-btn"

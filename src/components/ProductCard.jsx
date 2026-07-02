@@ -12,6 +12,12 @@ const ProductCard = ({
       onClick={() => onProductClick(product)}
     >
       <div className="product-card-image-wrapper">
+        {product.discountLabel && (
+          <span className="product-card-discount">
+            {product.discountLabel}
+          </span>
+        )}
+
         <button
           type="button"
           className={`product-card-heart ${
@@ -39,9 +45,21 @@ const ProductCard = ({
           {product.name}
         </h3>
 
-        <p className="product-card-price">
-          {product.price}
-        </p>
+        {product.originalPrice ? (
+          <div className="product-card-sale-price-row">
+            <span className="product-card-old-price">
+              {product.originalPrice}
+            </span>
+
+            <span className="product-card-sale-price">
+              {product.price}
+            </span>
+          </div>
+        ) : (
+          <p className="product-card-price">
+            {product.price}
+          </p>
+        )}
 
         <div className="product-card-colors">
           {product.colors.map((color) => (

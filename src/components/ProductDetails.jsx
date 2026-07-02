@@ -57,13 +57,31 @@ const ProductDetails = ({
             {product.category}
           </p>
 
+          {product.discountLabel && (
+            <span className="product-detail-discount-label">
+              {product.discountLabel}
+            </span>
+          )}
+
           <h1 className="product-detail-title-page">
             {product.name}
           </h1>
 
-          <p className="product-detail-price-page">
-            {product.price}
-          </p>
+          {product.originalPrice ? (
+            <div className="product-detail-sale-price-row">
+              <span className="product-detail-old-price">
+                {product.originalPrice}
+              </span>
+
+              <span className="product-detail-sale-price">
+                {product.price}
+              </span>
+            </div>
+          ) : (
+            <p className="product-detail-price-page">
+              {product.price}
+            </p>
+          )}
 
           <p className="product-detail-description-page">
             {product.description}
@@ -145,24 +163,28 @@ const ProductDetails = ({
                       <td>24-25"</td>
                       <td>34-35"</td>
                     </tr>
+
                     <tr>
                       <td>S</td>
                       <td>33-34"</td>
                       <td>26-27"</td>
                       <td>36-37"</td>
                     </tr>
+
                     <tr>
                       <td>M</td>
                       <td>35-36"</td>
                       <td>28-29"</td>
                       <td>38-39"</td>
                     </tr>
+
                     <tr>
                       <td>L</td>
                       <td>37-39"</td>
                       <td>30-32"</td>
                       <td>40-42"</td>
                     </tr>
+
                     <tr>
                       <td>XL</td>
                       <td>40-42"</td>
