@@ -12,6 +12,13 @@ import TopPage from "./components/TopPage.jsx";
 import BottomPage from "./components/BottomPage.jsx";
 import AccessoriesPage from "./components/AccessoriesPage.jsx";
 import SalePage from "./components/SalePage.jsx";
+import CartPage from "./components/CartPage.jsx";
+import FavoritesPage from "./components/FavoritesPage.jsx";
+import CheckoutPage from "./components/CheckoutPage.jsx";
+import OrderHistoryPage from "./components/OrderHistoryPage.jsx";
+import SurveyPage from "./components/SurveyPage.jsx";
+
+import AuthModal from "./components/AuthModal.jsx";
 
 import Footer from "./components/Footer.jsx";
 
@@ -19,8 +26,71 @@ import "./App.css";
 
 function App() {
   const [activePage, setActivePage] = useState("Home");
+  const [previousPage, setPreviousPage] = useState(null);
+
+  const handlePageChange = (page) => {
+    if (page !== activePage) {
+      setPreviousPage(activePage);
+    }
+
+    setActivePage(page);
+  };
+
+  const handleBack = () => {
+    if (previousPage) {
+      setActivePage(previousPage);
+      setPreviousPage(null);
+      return;
+    }
+
+    setActivePage("All");
+  };
 
   const renderPage = () => {
+    if (activePage === "Checkout") {
+      return (
+        <CheckoutPage
+          onBackToCart={() => handlePageChange("Cart")}
+          onContinueShopping={() => handlePageChange("All")}
+          onViewOrders={() => handlePageChange("Orders")}
+          onSurvey={() => handlePageChange("Survey")}
+        />
+      );
+    }
+
+    if (activePage === "Survey") {
+      return (
+        <SurveyPage
+          onContinueShopping={() => handlePageChange("All")}
+        />
+      );
+    }
+
+    if (activePage === "Orders") {
+      return (
+        <OrderHistoryPage
+          onContinueShopping={() => handlePageChange("All")}
+        />
+      );
+    }
+
+    if (activePage === "Cart") {
+      return (
+        <CartPage
+          onContinueShopping={() => handlePageChange("All")}
+          onCheckout={() => handlePageChange("Checkout")}
+        />
+      );
+    }
+
+    if (activePage === "Favorites") {
+      return (
+        <FavoritesPage
+          onContinueShopping={() => handlePageChange("All")}
+        />
+      );
+    }
+
     if (activePage === "All") {
       return <AllPage />;
     }
@@ -51,8 +121,8 @@ function App() {
 
     return (
       <>
-        <Banner />
-        <ShopbycategoryIcon onCategoryChange={setActivePage} />
+        <Banner onShopNow={() => handlePageChange("All")} />
+        <ShopbycategoryIcon onCategoryChange={handlePageChange} />
         <NewarrivalIcons />
       </>
     );
@@ -60,10 +130,9 @@ function App() {
 
   return (
     <>
-      <Navbar
-        cartCount={0}
-        onCategoryChange={setActivePage}
-      />
+      <Navbar onCategoryChange={handlePageChange} />
+
+      <AuthModal />
 
       <main>{renderPage()}</main>
 

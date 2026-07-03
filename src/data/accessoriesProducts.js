@@ -167,7 +167,7 @@ export const accessoriesProducts = [
       { name: "White", hex: "#f5f0e8", image: belt12White },
       { name: "Brown", hex: "#7a4b35", image: belt14Brown },
     ],
-    sizes: ["S", "M", "L"],
+    sizes: ["One Size"],
     description:
       "A classic buckle belt made to complete trousers, skirts, and tailored outfits.",
   },
@@ -179,7 +179,7 @@ export const accessoriesProducts = [
     image: belt21Brown,
     images: [belt21Brown, belt22Brown, belt23Brown, belt24Brown],
     colors: [{ name: "Brown", hex: "#6d4a36", image: belt21Brown }],
-    sizes: ["S", "M", "L"],
+    sizes: ["One Size"],
     description:
       "A slim belt with a gold buckle detail for a clean and polished waist accent.",
   },

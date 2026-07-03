@@ -1,0 +1,272 @@
+.orders-page {
+    width: 100%;
+    min-height: 100vh;
+    padding: 70px 90px;
+    background-color: #fffdf8;
+  }
+  
+  .orders-header {
+    max-width: 720px;
+    margin: 0 auto 48px;
+    text-align: center;
+  }
+  
+  .orders-eyebrow {
+    margin: 0 0 18px;
+  
+    color: #a97862;
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
+  
+  .orders-title {
+    margin: 0 0 18px;
+  
+    color: #2f211d;
+    font-family: "Cormorant Garamond", "Bodoni Custom", serif;
+    font-size: clamp(66px, 7vw, 110px);
+    font-weight: 400;
+    line-height: 0.9;
+  }
+  
+  .orders-description {
+    margin: 0;
+  
+    color: #5b3a31;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  
+  .orders-empty {
+    max-width: 620px;
+    margin: 0 auto;
+    padding: 50px 36px;
+  
+    background-color: #f8f1ec;
+    border: 1px solid #eadbd2;
+    border-radius: 18px;
+  
+    text-align: center;
+  }
+  
+  .orders-empty h2 {
+    margin: 0 0 14px;
+  
+    color: #2f211d;
+    font-family: "Cormorant Garamond", "Bodoni Custom", serif;
+    font-size: 46px;
+    font-weight: 400;
+  }
+  
+  .orders-empty p {
+    max-width: 430px;
+    margin: 0 auto 28px;
+  
+    color: #5b3a31;
+    font-family: "Montserrat", sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+  }
+  
+  .orders-empty button {
+    height: 48px;
+    padding: 0 28px;
+  
+    color: #ffffff;
+    background-color: #2f211d;
+    border: 1px solid #2f211d;
+    border-radius: 8px;
+  
+    font-family: "Montserrat", sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+  
+    cursor: pointer;
+  }
+  
+  .orders-empty button:hover {
+    background-color: #a97862;
+    border-color: #a97862;
+  }
+  
+  .orders-list {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+  
+  .order-card {
+    padding: 28px;
+  
+    background-color: #ffffff;
+    border: 1px solid #eadbd2;
+    border-radius: 18px;
+  }
+  
+  .order-card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+  
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+  
+    border-bottom: 1px solid #eadbd2;
+  }
+  
+  .order-number {
+    margin: 0 0 8px;
+  
+    color: #2f211d;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+  }
+  
+  .order-date {
+    margin: 0;
+  
+    color: #5b3a31;
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+  }
+  
+  .order-status {
+    padding: 9px 16px;
+  
+    color: #ffffff;
+    background-color: #a97862;
+    border-radius: 999px;
+  
+    font-family: "Montserrat", sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  
+  .order-items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+  
+  .order-item {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 14px;
+    align-items: center;
+  
+    padding: 14px;
+  
+    background-color: #f8f1ec;
+    border-radius: 12px;
+  }
+  
+  .order-item img {
+    width: 90px;
+    height: 115px;
+  
+    object-fit: cover;
+    object-position: center top;
+  
+    border-radius: 8px;
+  }
+  
+  .order-item h3 {
+    margin: 0 0 8px;
+  
+    color: #2f211d;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+  }
+  
+  .order-item p {
+    margin: 0 0 8px;
+  
+    color: #5b3a31;
+    font-family: "Montserrat", sans-serif;
+    font-size: 12px;
+  }
+  
+  .order-item strong {
+    color: #2f211d;
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+  }
+  
+  .order-summary {
+    max-width: 360px;
+    margin-left: auto;
+    margin-top: 24px;
+    padding-top: 20px;
+  
+    border-top: 1px solid #eadbd2;
+  }
+  
+  .order-summary div {
+    display: flex;
+    justify-content: space-between;
+  
+    padding: 8px 0;
+  
+    color: #5b3a31;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+  }
+  
+  .order-summary .order-total {
+    color: #2f211d;
+    font-size: 18px;
+    font-weight: 800;
+  }
+  
+  @media (max-width: 900px) {
+    .orders-page {
+      padding: 60px 40px;
+    }
+  
+    .order-items {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media (max-width: 650px) {
+    .orders-page {
+      padding: 44px 24px;
+    }
+  
+    .orders-title {
+      font-size: 58px;
+    }
+  
+    .order-card {
+      padding: 22px;
+    }
+  
+    .order-card-header {
+      flex-direction: column;
+    }
+  
+    .order-item {
+      grid-template-columns: 72px 1fr;
+    }
+  
+    .order-item img {
+      width: 72px;
+      height: 95px;
+    }
+  
+    .order-summary {
+      max-width: 100%;
+    }
+  }

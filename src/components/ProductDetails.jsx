@@ -1,25 +1,115 @@
 import { useState } from "react";
+import { useAuth } from "../context/useAuth";
 
 import "./ProductDetails.css";
 
-const ProductDetails = ({
-  product,
-  onBack,
-  isFavorite,
-  onToggleFavorite,
-}) => {
+const ProductDetails = ({ product, onBack }) => {
+  const {
+    currentUser,
+    addToCart,
+    toggleFavorite,
+    isFavorite,
+  } = useAuth();
+
+  const isOneSize =
+    product.sizes.length === 1 && product.sizes[0] === "One Size";
+
   const [selectedImage, setSelectedImage] = useState(product.images[0]);
-  const [selectedColor, setSelectedColor] = useState(product.colors[0].name);
-  const [selectedSize, setSelectedSize] = useState("");
+  const [selectedColor, setSelectedColor] = useState("");
+  const [selectedSize, setSelectedSize] = useState(
+    isOneSize ? "One Size" : ""
+  );
   const [showSizeGuide, setShowSizeGuide] = useState(false);
+
+  const [cartMessage, setCartMessage] = useState("");
+  const [favoriteMessage, setFavoriteMessage] = useState("");
+  const [cartError, setCartError] = useState("");
+  const [shakeButton, setShakeButton] = useState(false);
 
   const handleColorClick = (color) => {
     setSelectedColor(color.name);
     setSelectedImage(color.image);
+    setCartError("");
+  };
+
+  const handleSizeClick = (size) => {
+    setSelectedSize(size);
+    setCartError("");
+  };
+
+  const handleAddToCart = () => {
+    if (!selectedColor || !selectedSize) {
+      setCartError("Please choose a color and size before adding to cart.");
+      setShakeButton(true);
+
+      setTimeout(() => {
+        setShakeButton(false);
+      }, 450);
+
+      setTimeout(() => {
+        setCartError("");
+      }, 2200);
+
+      return;
+    }
+
+    const message = addToCart(product, selectedColor, selectedSize);
+
+    setCartMessage(message);
+
+    setTimeout(() => {
+      setCartMessage("");
+    }, 1800);
+  };
+
+  const handleFavoriteClick = () => {
+    if (!currentUser) {
+      setFavoriteMessage("Create a profile to add this to your favorite.");
+
+      setTimeout(() => {
+        setFavoriteMessage("");
+      }, 2200);
+
+      return;
+    }
+
+    const message = toggleFavorite(product);
+
+    setFavoriteMessage(message);
+
+    setTimeout(() => {
+      setFavoriteMessage("");
+    }, 1800);
   };
 
   return (
     <section className="product-detail-page">
+      {cartError && (
+        <div className="favorite-toast-popup">
+          <span className="favorite-toast-icon">!</span>
+
+          <strong>{cartError}</strong>
+        </div>
+      )}
+
+      {cartMessage && (
+        <div className="favorite-toast-popup">
+          <span className="favorite-toast-icon">✓</span>
+
+          <strong>{cartMessage}</strong>
+        </div>
+      )}
+
+      {favoriteMessage && (
+        <div className="favorite-toast-popup">
+          <span className="favorite-toast-icon">
+            {favoriteMessage.includes("Create") ? "!" : "♥"}
+          </span>
+
+          <strong>{favoriteMessage}</strong>
+        </div>
+      )}
+
       <button
         type="button"
         className="product-detail-back"
@@ -36,9 +126,7 @@ const ProductDetails = ({
                 key={image}
                 type="button"
                 className={`product-detail-thumbnail-page ${
-                  selectedImage === image
-                    ? "active-thumbnail"
-                    : ""
+                  selectedImage === image ? "active-thumbnail" : ""
                 }`}
                 onClick={() => setSelectedImage(image)}
               >
@@ -89,7 +177,10 @@ const ProductDetails = ({
 
           <div className="product-detail-option-block">
             <div className="product-detail-option-heading">
-              Color: <span>{selectedColor}</span>
+              Color:{" "}
+              <span>
+                {selectedColor || "Choose a color"}
+              </span>
             </div>
 
             <div className="product-detail-color-options">
@@ -98,9 +189,7 @@ const ProductDetails = ({
                   key={color.name}
                   type="button"
                   className={`product-detail-color-button ${
-                    selectedColor === color.name
-                      ? "selected-color"
-                      : ""
+                    selectedColor === color.name ? "selected-color" : ""
                   }`}
                   style={{ backgroundColor: color.hex }}
                   onClick={() => handleColorClick(color)}
@@ -113,36 +202,41 @@ const ProductDetails = ({
           <div className="product-detail-option-block">
             <div className="product-detail-size-row">
               <div className="product-detail-option-heading">
-                Size
+                Size:{" "}
+                <span>
+                  {selectedSize || "Choose a size"}
+                </span>
               </div>
 
-              <button
-                type="button"
-                className="product-detail-size-guide-btn"
-                onClick={() => setShowSizeGuide(!showSizeGuide)}
-              >
-                Size Guide
-              </button>
-            </div>
-
-            <div className="product-detail-size-options">
-              {product.sizes.map((size) => (
+              {!isOneSize && (
                 <button
-                  key={size}
                   type="button"
-                  className={`product-detail-size-button ${
-                    selectedSize === size
-                      ? "selected-size"
-                      : ""
-                  }`}
-                  onClick={() => setSelectedSize(size)}
+                  className="product-detail-size-guide-btn"
+                  onClick={() => setShowSizeGuide(!showSizeGuide)}
                 >
-                  {size}
+                  Size Guide
                 </button>
-              ))}
+              )}
             </div>
 
-            {showSizeGuide && (
+            {!isOneSize && (
+              <div className="product-detail-size-options">
+                {product.sizes.map((size) => (
+                  <button
+                    key={size}
+                    type="button"
+                    className={`product-detail-size-button ${
+                      selectedSize === size ? "selected-size" : ""
+                    }`}
+                    onClick={() => handleSizeClick(size)}
+                  >
+                    {size}
+                  </button>
+                ))}
+              </div>
+            )}
+
+            {showSizeGuide && !isOneSize && (
               <div className="product-detail-size-guide">
                 <h3>Size Guide</h3>
 
@@ -200,7 +294,10 @@ const ProductDetails = ({
           <div className="product-detail-actions-page">
             <button
               type="button"
-              className="product-detail-add-cart"
+              className={`product-detail-add-cart ${
+                shakeButton ? "shake-add-cart" : ""
+              }`}
+              onClick={handleAddToCart}
             >
               Add to Cart
             </button>
@@ -215,7 +312,7 @@ const ProductDetails = ({
                   ? "Remove from favorite"
                   : "Add to favorite"
               }
-              onClick={(event) => onToggleFavorite(product, event)}
+              onClick={handleFavoriteClick}
             >
               {isFavorite(product.id) ? "♥" : "♡"}
             </button>

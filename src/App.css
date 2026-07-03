@@ -42,3 +42,187 @@ main {
   font-family: Arial, sans-serif;
   font-size: 48px;
 }
+.site-back-wrap {
+  width: 100%;
+  padding: 24px 90px 0;
+  background-color: #fffdf8;
+}
+
+.site-back-btn {
+  color: #5b3a31;
+  background-color: #fffdf8;
+  border: 1px solid #d8c7bd;
+  border-radius: 999px;
+
+  padding: 11px 22px;
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.site-back-btn:hover {
+  color: #ffffff;
+  background-color: #a97862;
+  border-color: #a97862;
+}
+.favorite-toast-popup {
+  position: fixed;
+  top: 115px;
+  left: 50%;
+  z-index: 8000;
+
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  min-width: 330px;
+  padding: 18px 28px;
+
+  color: #5b3a31;
+  background-color: #fffdf8;
+  border: 1px solid #d8bfb2;
+  border-radius: 14px;
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 17px;
+  font-weight: 800;
+
+  box-shadow: 0 18px 45px rgba(47, 33, 29, 0.18);
+
+  transform: translateX(-50%);
+  animation: favoriteToastSlide 0.25s ease;
+}
+
+.favorite-toast-icon {
+  color: #6b4a3f;
+  font-size: 26px;
+  line-height: 1;
+}
+
+.favorite-toast-popup strong {
+  color: #5b3a31;
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+@keyframes favoriteToastSlide {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+@media (max-width: 650px) {
+  .favorite-toast-popup {
+    top: 95px;
+    left: 18px;
+    right: 18px;
+
+    min-width: 0;
+
+    transform: none;
+  }
+
+  @keyframes favoriteToastSlide {
+    from {
+      opacity: 0;
+      transform: translateY(-12px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .favorite-toast-popup {
+    position: fixed;
+    top: 115px;
+    left: 50%;
+    z-index: 9000;
+  
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  
+    min-width: 330px;
+    padding: 18px 28px;
+  
+    color: #5b3a31;
+    background-color: #fffdf8;
+    border: 1px solid #d8bfb2;
+    border-radius: 14px;
+  
+    font-family: "Montserrat", sans-serif;
+  
+    box-shadow: 0 18px 45px rgba(47, 33, 29, 0.18);
+  
+    transform: translateX(-50%);
+    animation: favoriteToastSlide 0.25s ease;
+  }
+  
+  .favorite-toast-icon {
+    color: #6b4a3f;
+    font-size: 26px;
+    line-height: 1;
+  }
+  
+  .favorite-toast-popup strong {
+    color: #5b3a31;
+    font-family: "Montserrat", sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+  }
+  
+  @keyframes favoriteToastSlide {
+    from {
+      opacity: 0;
+      transform: translate(-50%, -12px);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+  }
+  
+  @media (max-width: 650px) {
+    .favorite-toast-popup {
+      top: 95px;
+      left: 18px;
+      right: 18px;
+  
+      min-width: 0;
+  
+      transform: none;
+    }
+  
+    @keyframes favoriteToastSlide {
+      from {
+        opacity: 0;
+        transform: translateY(-12px);
+      }
+  
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+}

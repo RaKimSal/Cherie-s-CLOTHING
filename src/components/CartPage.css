@@ -1,0 +1,296 @@
+.cart-page {
+    width: 100%;
+    min-height: 100vh;
+    padding: 70px 90px;
+    background-color: #fffdf8;
+  }
+  
+  .cart-page-header {
+    max-width: 720px;
+    margin: 0 auto 48px;
+    text-align: center;
+  }
+  
+  .cart-page-eyebrow {
+    margin: 0 0 18px;
+  
+    color: #a97862;
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
+  
+  .cart-page-title {
+    margin: 0 0 18px;
+  
+    color: #2f211d;
+    font-family: "Cormorant Garamond", "Bodoni Custom", serif;
+    font-size: clamp(66px, 7vw, 110px);
+    font-weight: 400;
+    line-height: 0.9;
+  }
+  
+  .cart-page-description {
+    margin: 0;
+  
+    color: #5b3a31;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  
+  .cart-page-empty {
+    max-width: 620px;
+    margin: 0 auto;
+    padding: 50px 36px;
+  
+    background-color: #f8f1ec;
+    border: 1px solid #eadbd2;
+    border-radius: 18px;
+  
+    text-align: center;
+  }
+  
+  .cart-page-empty h2 {
+    margin: 0 0 14px;
+  
+    color: #2f211d;
+    font-family: "Cormorant Garamond", "Bodoni Custom", serif;
+    font-size: 46px;
+    font-weight: 400;
+  }
+  
+  .cart-page-empty p {
+    margin: 0 auto 28px;
+    max-width: 420px;
+  
+    color: #5b3a31;
+    font-family: "Montserrat", sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+  }
+  
+  .cart-page-empty button,
+  .cart-checkout-page-btn,
+  .cart-continue-btn {
+    height: 48px;
+    padding: 0 28px;
+  
+    font-family: "Montserrat", sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+  
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .cart-page-empty button,
+  .cart-checkout-page-btn {
+    color: #ffffff;
+    background-color: #2f211d;
+    border: 1px solid #2f211d;
+  }
+  
+  .cart-page-empty button:hover,
+  .cart-checkout-page-btn:hover {
+    background-color: #a97862;
+    border-color: #a97862;
+  }
+  
+  .cart-page-layout {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 34px;
+    align-items: start;
+  }
+  
+  .cart-page-items {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  
+  .cart-page-item {
+    display: grid;
+    grid-template-columns: 150px 1fr auto;
+    gap: 22px;
+    align-items: center;
+  
+    padding: 20px;
+  
+    background-color: #ffffff;
+    border: 1px solid #eadbd2;
+    border-radius: 14px;
+  }
+  
+  .cart-page-item-image {
+    width: 150px;
+    height: 190px;
+  
+    object-fit: cover;
+    object-position: center top;
+  
+    border-radius: 10px;
+    background-color: #f1dfd5;
+  }
+  
+  .cart-page-item-info h3 {
+    margin: 0 0 14px;
+  
+    color: #2f211d;
+    font-family: "Cormorant Garamond", "Bodoni Custom", serif;
+    font-size: 32px;
+    font-weight: 400;
+  }
+  
+  .cart-page-item-info p {
+    margin: 0 0 7px;
+  
+    color: #5b3a31;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+  }
+  
+  .cart-page-item-info p span {
+    color: #a97862;
+    font-weight: 700;
+  }
+  
+  .cart-page-item-info strong {
+    display: inline-block;
+    margin-top: 10px;
+  
+    color: #2f211d;
+    font-family: "Montserrat", sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+  }
+  
+  .cart-page-remove {
+    padding: 10px 16px;
+  
+    color: #5b3a31;
+    background-color: #fffdf8;
+    border: 1px solid #d8c7bd;
+    border-radius: 8px;
+  
+    font-family: "Montserrat", sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+  
+    cursor: pointer;
+  }
+  
+  .cart-page-remove:hover {
+    color: #ffffff;
+    background-color: #a97862;
+    border-color: #a97862;
+  }
+  
+  .cart-page-summary {
+    position: sticky;
+    top: 120px;
+  
+    padding: 28px;
+  
+    background-color: #f8f1ec;
+    border: 1px solid #eadbd2;
+    border-radius: 18px;
+  }
+  
+  .cart-page-summary h2 {
+    margin: 0 0 24px;
+  
+    color: #2f211d;
+    font-family: "Cormorant Garamond", "Bodoni Custom", serif;
+    font-size: 38px;
+    font-weight: 400;
+  }
+  
+  .cart-summary-row,
+  .cart-summary-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  
+    padding: 14px 0;
+  
+    color: #5b3a31;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+  
+    border-bottom: 1px solid #eadbd2;
+  }
+  
+  .cart-summary-total {
+    margin-top: 10px;
+    border-bottom: none;
+  
+    color: #2f211d;
+    font-size: 18px;
+    font-weight: 800;
+  }
+  
+  .cart-checkout-page-btn,
+  .cart-continue-btn {
+    width: 100%;
+    margin-top: 18px;
+  }
+  
+  .cart-continue-btn {
+    color: #5b3a31;
+    background-color: #fffdf8;
+    border: 1px solid #d8c7bd;
+  }
+  
+  .cart-continue-btn:hover {
+    color: #ffffff;
+    background-color: #a97862;
+    border-color: #a97862;
+  }
+  
+  @media (max-width: 1050px) {
+    .cart-page {
+      padding: 60px 40px;
+    }
+  
+    .cart-page-layout {
+      grid-template-columns: 1fr;
+    }
+  
+    .cart-page-summary {
+      position: static;
+    }
+  }
+  
+  @media (max-width: 650px) {
+    .cart-page {
+      padding: 44px 24px;
+    }
+  
+    .cart-page-title {
+      font-size: 58px;
+    }
+  
+    .cart-page-item {
+      grid-template-columns: 105px 1fr;
+    }
+  
+    .cart-page-item-image {
+      width: 105px;
+      height: 140px;
+    }
+  
+    .cart-page-remove {
+      grid-column: 1 / -1;
+    }
+  
+    .cart-page-item-info h3 {
+      font-size: 26px;
+    }
+  }

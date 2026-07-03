@@ -134,48 +134,56 @@
   border-radius: 50%;
 }
 
-/* Small favorite notification */
+/* Shared toast popup */
 
-.favorite-popup {
+.favorite-toast-popup {
   position: fixed;
   top: 115px;
-  right: 35px;
-  z-index: 6000;
+  left: 50%;
+  z-index: 9000;
 
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 14px;
 
-  padding: 10px 16px;
+  min-width: 330px;
+  padding: 18px 28px;
 
   color: #5b3a31;
   background-color: #fffdf8;
   border: 1px solid #d8bfb2;
-  border-radius: 8px;
+  border-radius: 14px;
 
   font-family: "Montserrat", sans-serif;
-  font-size: 13px;
-  font-weight: 600;
 
-  box-shadow: 0 8px 22px rgba(47, 33, 29, 0.16);
-  animation: favoritePopupShow 0.22s ease;
+  box-shadow: 0 18px 45px rgba(47, 33, 29, 0.18);
+
+  transform: translateX(-50%);
+  animation: favoriteToastSlide 0.25s ease;
 }
 
-.favorite-popup-heart {
-  color: #a97862;
-  font-size: 15px;
+.favorite-toast-icon {
+  color: #6b4a3f;
+  font-size: 26px;
   line-height: 1;
 }
 
-@keyframes favoritePopupShow {
+.favorite-toast-popup strong {
+  color: #5b3a31;
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+@keyframes favoriteToastSlide {
   from {
     opacity: 0;
-    transform: translateY(-8px) scale(0.95);
+    transform: translate(-50%, -12px);
   }
 
   to {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translate(-50%, 0);
   }
 }
 
@@ -439,6 +447,38 @@
   font-size: 13px;
 }
 
+/* Shake animation */
+
+.shake-newarrival-cart {
+  animation: shakeNewarrivalCart 0.42s ease;
+}
+
+@keyframes shakeNewarrivalCart {
+  0% {
+    transform: translateX(0);
+  }
+
+  20% {
+    transform: translateX(-8px);
+  }
+
+  40% {
+    transform: translateX(8px);
+  }
+
+  60% {
+    transform: translateX(-6px);
+  }
+
+  80% {
+    transform: translateX(6px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
 /* Tablet */
 @media (max-width: 1050px) {
   .new-arrivals-section {
@@ -481,11 +521,26 @@
     height: 390px;
   }
 
-  .favorite-popup {
+  .favorite-toast-popup {
     top: 95px;
-    right: 18px;
     left: 18px;
-    justify-content: center;
+    right: 18px;
+
+    min-width: 0;
+
+    transform: none;
+  }
+
+  @keyframes favoriteToastSlide {
+    from {
+      opacity: 0;
+      transform: translateY(-12px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .product-detail-overlay {

@@ -1,263 +1,390 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
-
-@font-face {
-  font-family: "Bodoni Custom";
-  src: url("../assets/font/Bodoni.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
+.cherie-header {
+  width: 100%;
+  background-color: #fffdf8;
+  border-bottom: 1px solid #eadbd2;
+  position: relative;
+  z-index: 5000;
 }
-  .cherie-header {
-    width: 100%;
-    background-color: #fffdf8;
-    border-bottom: 1px solid #eadbd2;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
-  
-  .promo-bar {
-    width: 100%;
-    padding: 8px 16px;
-    background-color: #f1dfd5;
-    color: #5b3a31;
-    font-family: "Montserrat", sans-serif;
-    font-size: 13px;
-    letter-spacing: 0.8px;
-    text-align: center;
-  }
-  
+
+.promo-bar {
+  width: 100%;
+  padding: 8px 20px;
+
+  color: #6b4a3f;
+  background-color: #ead8cc;
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.cherie-navbar {
+  position: relative;
+
+  width: 100%;
+  min-height: 150px;
+  padding: 28px 70px;
+
+  display: grid;
+  grid-template-columns: 260px 1fr auto;
+  align-items: center;
+  gap: 30px;
+
+  background-color: #fffdf8;
+}
+
+.cherie-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.cherie-logo-main {
+  color: #2f211d;
+  font-family: "Cormorant Garamond", "Bodoni Custom", serif;
+  font-size: 54px;
+  font-weight: 400;
+  line-height: 0.9;
+}
+
+.cherie-logo-sub {
+  margin-top: 10px;
+
+  color: #7b5a50;
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 10px;
+}
+
+.cherie-nav-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 42px;
+}
+
+.cherie-nav-link {
+  color: #2f211d;
+  background: none;
+  border: none;
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition: color 0.2s ease;
+}
+
+.cherie-nav-link:hover {
+  color: #a97862;
+}
+
+.cherie-nav-icons {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 18px;
+}
+
+.nav-icon-btn {
+  position: relative;
+
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #2f211d;
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+
+  font-size: 24px;
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.nav-icon-btn:hover {
+  color: #ffffff;
+  background-color: #a97862;
+}
+
+.cart-icon {
+  font-size: 24px;
+}
+
+.cart-count {
+  position: absolute;
+  top: -3px;
+  right: -5px;
+
+  width: 22px;
+  height: 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #ffffff;
+  background-color: #a97862;
+  border-radius: 50%;
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.account-menu-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.account-dropdown {
+  position: absolute;
+  top: 52px;
+  right: 0;
+  z-index: 9999;
+
+  width: 275px;
+  padding: 20px;
+
+  background-color: #fffdf8;
+  border: 1px solid #eadbd2;
+  border-radius: 14px;
+
+  box-shadow: 0 14px 34px rgba(47, 33, 29, 0.18);
+
+  text-align: left;
+}
+
+.account-dropdown-label {
+  margin: 0 0 8px;
+
+  color: #a97862;
+  font-family: "Montserrat", sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.account-dropdown h4 {
+  margin: 0 0 8px;
+
+  color: #2f211d;
+  font-family: "Cormorant Garamond", "Bodoni Custom", serif;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.account-dropdown-email {
+  margin: 0 0 16px;
+
+  color: #5b3a31;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+.account-dropdown-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+
+  margin-bottom: 16px;
+}
+
+.account-dropdown-stats button {
+  padding: 9px 10px;
+
+  color: #5b3a31;
+  background-color: #f8f1ec;
+  border: none;
+  border-radius: 8px;
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: center;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.account-dropdown-stats button:hover {
+  color: #ffffff;
+  background-color: #a97862;
+}
+
+.account-dropdown-btn {
+  width: 100%;
+  height: 42px;
+
+  color: #ffffff;
+  background-color: #2f211d;
+  border: 1px solid #2f211d;
+  border-radius: 8px;
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.account-dropdown-btn:hover {
+  background-color: #a97862;
+  border-color: #a97862;
+}
+
+.mobile-menu-btn {
+  display: none;
+}
+
+/* Tablet */
+
+@media (max-width: 1050px) {
   .cherie-navbar {
-    width: 100%;
-    min-height: 88px;
-    padding: 0 130px;
-  
-    display: grid;
-    grid-template-columns: 200px 1fr 150px;
-    align-items: center;
-    gap: 20px;
-  
-    background-color: #fffdf8;
+    grid-template-columns: 220px 1fr auto;
+    padding: 24px 36px;
   }
-  
-  .cherie-logo {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 0;
-  
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
-  
+
   .cherie-logo-main {
-    color: #2f211d;
-    font-family: "Bodoni Custom", serif;
     font-size: 46px;
-    font-weight: normal;
-    line-height: 0.9;
-    letter-spacing: 0.3px;
   }
-  
+
   .cherie-logo-sub {
-    margin-left: 36px;
-    margin-top: 5px;
-  
-    color: #6f5148;
-    font-family: "Montserrat", sans-serif;
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 7px;
+    font-size: 11px;
+    letter-spacing: 8px;
   }
-  
+
   .cherie-nav-links {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 34px;
+    gap: 24px;
   }
-  
+
   .cherie-nav-link {
-    color: #2f211d;
-    background: none;
-    border: none;
-  
-    font-family: "Montserrat", sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 1.1px;
-    text-transform: uppercase;
-  
-    cursor: pointer;
-    transition: color 0.2s ease;
+    font-size: 12px;
   }
-  
-  .cherie-nav-link:hover {
-    color: #a97862;
+}
+
+/* Mobile */
+
+@media (max-width: 780px) {
+  .cherie-navbar {
+    min-height: auto;
+    grid-template-columns: auto 1fr auto;
+    padding: 20px 24px;
   }
-  
-  .nav-arrow {
-    margin-left: 6px;
-    font-size: 15px;
-  }
-  
-  .cherie-nav-icons {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 22px;
-  }
-  
-  .nav-icon-btn {
-    position: relative;
-  
-    width: 34px;
-    height: 34px;
-  
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  
-    color: #2f211d;
-    background: none;
-    border: none;
-  
-    font-size: 27px;
-    cursor: pointer;
-    transition: transform 0.2s ease, color 0.2s ease;
-  }
-  
-  .nav-icon-btn:hover {
-    color: #a97862;
-    transform: translateY(-2px);
-  }
-  
-  .cart-icon {
-    font-size: 22px;
-  }
-  
-  .cart-count {
-    position: absolute;
-    top: 0;
-    right: -5px;
-  
-    width: 18px;
-    height: 18px;
-  
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  
-    color: #ffffff;
-    background-color: #a97862;
-    border-radius: 50%;
-  
-    font-family: "Montserrat", sans-serif;
-    font-size: 10px;
-    font-weight: 700;
-  }
-  
+
   .mobile-menu-btn {
-    display: none;
-  
+    display: block;
+
     color: #2f211d;
     background: none;
     border: none;
-  
-    font-size: 30px;
+
+    font-size: 26px;
     cursor: pointer;
   }
-  
-  /* Tablet */
-  @media (max-width: 1050px) {
-    .cherie-navbar {
-      padding: 0 28px;
-      grid-template-columns: 180px 1fr 150px;
-    }
-  
-    .cherie-logo-main {
-      font-size: 38px;
-    }
-  
-    .cherie-logo-sub {
-      margin-left: 28px;
-      font-size: 10px;
-      letter-spacing: 6px;
-    }
-  
-    .cherie-nav-links {
-      gap: 18px;
-    }
-  
-    .cherie-nav-link {
-      font-size: 12px;
-    }
+
+  .cherie-logo {
+    align-items: center;
   }
-  
-  /* Mobile */
-  @media (max-width: 780px) {
-    .cherie-navbar {
-      min-height: 78px;
-      padding: 0 18px;
-      grid-template-columns: 40px 1fr 110px;
-    }
-  
-    .mobile-menu-btn {
-      display: block;
-    }
-  
-    .cherie-logo {
-      align-items: center;
-    }
-  
-    .cherie-logo-main {
-      font-size: 34px;
-    }
-  
-    .cherie-logo-sub {
-      margin-left: 0;
-      margin-top: 4px;
-      font-size: 9px;
-      letter-spacing: 5px;
-    }
-  
-    .cherie-nav-links {
-      position: absolute;
-      top: 112px;
-      left: 0;
-      right: 0;
-  
-      display: none;
-      flex-direction: column;
-      gap: 0;
-  
-      background-color: #fffdf8;
-      border-top: 1px solid #eadbd2;
-      border-bottom: 1px solid #eadbd2;
-    }
-  
-    .cherie-nav-links.show-menu {
-      display: flex;
-    }
-  
-    .cherie-nav-link {
-      width: 100%;
-      padding: 16px;
-      border-bottom: 1px solid #eadbd2;
-    }
-  
-    .cherie-nav-icons {
-      gap: 8px;
-    }
-  
-    .nav-icon-btn {
-      width: 28px;
-      height: 28px;
-      font-size: 22px;
-    }
-  
-    .cart-icon {
-      font-size: 19px;
-    }
+
+  .cherie-logo-main {
+    font-size: 38px;
   }
+
+  .cherie-logo-sub {
+    font-size: 10px;
+    letter-spacing: 6px;
+  }
+
+  .cherie-nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+
+    display: none;
+    flex-direction: column;
+    gap: 0;
+
+    background-color: #fffdf8;
+    border-top: 1px solid #eadbd2;
+    border-bottom: 1px solid #eadbd2;
+  }
+
+  .cherie-nav-links.show-menu {
+    display: flex;
+  }
+
+  .cherie-nav-link {
+    width: 100%;
+    padding: 16px 20px;
+
+    border-bottom: 1px solid #eadbd2;
+  }
+
+  .cherie-nav-icons {
+    gap: 8px;
+  }
+
+  .nav-icon-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
+  }
+
+  .cart-count {
+    top: -4px;
+    right: -6px;
+
+    width: 20px;
+    height: 20px;
+
+    font-size: 10px;
+  }
+
+  .account-dropdown {
+    right: -42px;
+    width: 245px;
+  }
+
+  .account-dropdown h4 {
+    font-size: 25px;
+  }
+
+  .account-dropdown-stats {
+    grid-template-columns: 1fr;
+  }
+}

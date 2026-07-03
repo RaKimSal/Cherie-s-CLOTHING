@@ -109,9 +109,12 @@ const SummerPage = () => {
     return (
       <>
         {favoriteMessage && (
-          <div className="summer-favorite-popup">
-            <span>♥</span>
-            <span>{favoriteMessage}</span>
+          <div className="favorite-toast-popup">
+            <span className="favorite-toast-icon">
+              {favoriteMessage.includes("Create") ? "!" : "♥"}
+            </span>
+      
+            <strong>{favoriteMessage}</strong>
           </div>
         )}
 

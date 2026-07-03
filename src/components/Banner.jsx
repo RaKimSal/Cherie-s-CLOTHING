@@ -2,7 +2,7 @@ import bannerImage from "../assets/img/homepage.png";
 
 import "./Banner.css";
 
-const Banner = () => {
+const Banner = ({onShopNow}) => {
   return (
     <section className="cherie-banner">
       <img
@@ -28,7 +28,12 @@ const Banner = () => {
           you feel your most confident self.
         </p>
 
-        <button className="cherie-banner-button">
+        <button 
+          type="button"
+          className="cherie-banner-button"
+          onClick={onShopNow}
+          
+          >
           Shop Now
         </button>
       </div>

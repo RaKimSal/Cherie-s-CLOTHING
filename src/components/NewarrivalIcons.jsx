@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useAuth } from "../context/useAuth";
 
 import newInOne from "../assets/img/newIn/newIn1-1.png";
 import newInOneBack from "../assets/img/newIn/newIn1-2.png";
@@ -21,25 +22,25 @@ import newInFourDetail from "../assets/img/newIn/newIn4-3.png";
 import "./NewarrivalIcons.css";
 
 const NewarrivalIcons = () => {
+  const {
+    currentUser,
+    addToCart,
+    toggleFavorite,
+    isFavorite,
+  } = useAuth();
+
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
   const [selectedColor, setSelectedColor] = useState("");
   const [selectedSize, setSelectedSize] = useState("");
-  const [favoriteMessage, setFavoriteMessage] = useState("");
 
-  const [favorites, setFavorites] = useState(() => {
-    const savedFavorites = localStorage.getItem("cheriesFavorites");
-
-    if (savedFavorites) {
-      return JSON.parse(savedFavorites);
-    }
-
-    return [];
-  });
+  const [toastMessage, setToastMessage] = useState("");
+  const [toastIcon, setToastIcon] = useState("♥");
+  const [shakeButton, setShakeButton] = useState(false);
 
   const newArrivals = [
     {
-      id: 1,
+      id: "new-arrival-1",
       name: "Elegant Off-Shoulder Dress",
       price: "$89.00",
       image: newInOne,
@@ -71,7 +72,7 @@ const NewarrivalIcons = () => {
         "An elegant fitted dress designed for a timeless and feminine look.",
     },
     {
-      id: 2,
+      id: "new-arrival-2",
       name: "Linen Vest Trouser Set",
       price: "$109.00",
       image: newInTwo,
@@ -103,7 +104,7 @@ const NewarrivalIcons = () => {
         "A polished vest and trouser set made for a soft, elevated style.",
     },
     {
-      id: 3,
+      id: "new-arrival-3",
       name: "Strapless Linen Jumpsuit",
       price: "$79.00",
       image: newInThree,
@@ -124,7 +125,7 @@ const NewarrivalIcons = () => {
         "A relaxed cream jumpsuit with soft fabric and an effortless silhouette.",
     },
     {
-      id: 4,
+      id: "new-arrival-4",
       name: "Textured Co-Ord Set",
       price: "$99.00",
       image: newInFour,
@@ -147,30 +148,28 @@ const NewarrivalIcons = () => {
   ];
 
   useEffect(() => {
-    localStorage.setItem(
-      "cheriesFavorites",
-      JSON.stringify(favorites)
-    );
-  }, [favorites]);
-
-  useEffect(() => {
-    if (!favoriteMessage) {
+    if (!toastMessage) {
       return;
     }
 
     const timer = setTimeout(() => {
-      setFavoriteMessage("");
-    }, 1800);
+      setToastMessage("");
+    }, 2000);
 
     return () => {
       clearTimeout(timer);
     };
-  }, [favoriteMessage]);
+  }, [toastMessage]);
+
+  const showToast = (message, icon) => {
+    setToastMessage(message);
+    setToastIcon(icon);
+  };
 
   const openProduct = (product) => {
     setSelectedProduct(product);
     setSelectedImage(product.images[0]);
-    setSelectedColor(product.colors[0].name);
+    setSelectedColor("");
     setSelectedSize("");
   };
 
@@ -186,8 +185,8 @@ const NewarrivalIcons = () => {
     setSelectedImage(color.image);
   };
 
-  const isFavorite = (productId) => {
-    return favorites.some((item) => item.id === productId);
+  const handleSizeClick = (size) => {
+    setSelectedSize(size);
   };
 
   const handleToggleFavorite = (product, event) => {
@@ -195,42 +194,59 @@ const NewarrivalIcons = () => {
       event.stopPropagation();
     }
 
-    const alreadyFavorite = isFavorite(product.id);
-
-    if (alreadyFavorite) {
-      setFavorites((currentFavorites) =>
-        currentFavorites.filter((item) => item.id !== product.id)
+    if (!currentUser) {
+      showToast(
+        "Create a profile to add this to your favorite.",
+        "!"
       );
 
-      setFavoriteMessage("Removed from Favorites");
       return;
     }
 
-    const favoriteItem = {
-      id: product.id,
-      name: product.name,
-      price: product.price,
-      image: product.image,
-      selectedColor: selectedProduct
-        ? selectedColor
-        : product.colors[0].name,
-      selectedSize: selectedSize || "Not selected yet",
-    };
+    const message = toggleFavorite(product);
+    const icon = message.includes("Removed") ? "♡" : "♥";
 
-    setFavorites((currentFavorites) => [
-      ...currentFavorites,
-      favoriteItem,
-    ]);
+    showToast(message, icon);
+  };
 
-    setFavoriteMessage("Added to Favorites");
+  const handleAddToCart = () => {
+    if (!selectedProduct) {
+      return;
+    }
+
+    if (!selectedColor || !selectedSize) {
+      showToast(
+        "Please choose a color and size before adding to cart.",
+        "!"
+      );
+
+      setShakeButton(true);
+
+      setTimeout(() => {
+        setShakeButton(false);
+      }, 450);
+
+      return;
+    }
+
+    const message = addToCart(
+      selectedProduct,
+      selectedColor,
+      selectedSize
+    );
+
+    showToast(message, "✓");
   };
 
   return (
     <>
-      {favoriteMessage && (
-        <div className="favorite-popup">
-          <span className="favorite-popup-heart">♥</span>
-          <span>{favoriteMessage}</span>
+      {toastMessage && (
+        <div className="favorite-toast-popup">
+          <span className="favorite-toast-icon">
+            {toastIcon}
+          </span>
+
+          <strong>{toastMessage}</strong>
         </div>
       )}
 
@@ -327,7 +343,10 @@ const NewarrivalIcons = () => {
                     }`}
                     onClick={() => setSelectedImage(image)}
                   >
-                    <img src={image} alt={selectedProduct.name} />
+                    <img
+                      src={image}
+                      alt={selectedProduct.name}
+                    />
                   </button>
                 ))}
               </div>
@@ -355,7 +374,10 @@ const NewarrivalIcons = () => {
 
               <div className="product-option-block">
                 <div className="product-option-heading">
-                  Color: <span>{selectedColor}</span>
+                  Color:{" "}
+                  <span>
+                    {selectedColor || "Choose a color"}
+                  </span>
                 </div>
 
                 <div className="product-color-options">
@@ -378,7 +400,10 @@ const NewarrivalIcons = () => {
 
               <div className="product-option-block">
                 <div className="product-option-heading">
-                  Size
+                  Size:{" "}
+                  <span>
+                    {selectedSize || "Choose a size"}
+                  </span>
                 </div>
 
                 <div className="product-size-options">
@@ -391,7 +416,7 @@ const NewarrivalIcons = () => {
                           ? "selected-size"
                           : ""
                       }`}
-                      onClick={() => setSelectedSize(size)}
+                      onClick={() => handleSizeClick(size)}
                     >
                       {size}
                     </button>
@@ -402,7 +427,10 @@ const NewarrivalIcons = () => {
               <div className="product-detail-actions">
                 <button
                   type="button"
-                  className="product-add-cart"
+                  className={`product-add-cart ${
+                    shakeButton ? "shake-newarrival-cart" : ""
+                  }`}
+                  onClick={handleAddToCart}
                 >
                   Add to Cart
                 </button>

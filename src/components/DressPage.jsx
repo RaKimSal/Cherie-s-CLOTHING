@@ -109,10 +109,13 @@ const DressPage = () => {
     return (
       <>
         {favoriteMessage && (
-          <div className="dress-favorite-popup">
-            <span>♥</span>
-            <span>{favoriteMessage}</span>
-          </div>
+          <div className="favorite-toast-popup">
+            <span className="favorite-toast-icon">
+              {favoriteMessage.includes("Create") ? "!" : "♥"}
+            </span>
+        
+            <strong>{favoriteMessage}</strong>
+        </div>
         )}
 
         <ProductDetails
